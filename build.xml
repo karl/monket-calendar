@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+
+<project name="monket-calendar" default="dist" basedir=".">
+    <target name="prepare">
+        <echo msg="Making directory ./build" />
+        <mkdir dir="./build" />
+    </target>
+</project>
