@@ -1,0 +1,13 @@
+RewriteEngine On
+
+# This stops apache getting confused and mucking up the 
+# query string
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteRule ^/home/hosting/web/karl/www.monket.net/cal$ cal/ [R,L]
+
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([0-9-]+)$ index.php?getdate=$1 [QSA]
+

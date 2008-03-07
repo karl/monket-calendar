@@ -1,0 +1,110 @@
+/*
+ * Monket Calendar 0.9
+ *  by Karl O'Keeffe
+ *  24 June 2005
+ *
+ * Homepage: http://www.monket.net/wiki/monket-calendar/
+ * Released under the GPL (all code)
+ * Released under the Creative Commons License 2.5 (without phpicalendar)
+*/
+
+
+!!!About
+An Ajax enabled online calendar. Drag and drop events to change dates, drag the start/end of an event to create multi-day events, create and edit events 
+without refreshing the page, all with an iCal style interface.
+
+This release now works in all major browsers (Firefox, Opera, Safari, and Internet Explorer). IE support still has a few bugs, namely the previous/next 
+month links not working, and the need to click on a multi-day event before you can resize it.
+
+!!!Demo
+Try out the beta calendar [1]
+Works in Firefox, Opera, Safari, and Internet Explorer (IE support is still buggy).
+
+[1] http://www.monket.net/cal/
+
+!!!Info
+Monket Calendar is coded in HTML, CSS, Javascript, and PHP. It is based on the premise of providing an Apple iCal style interface that is available 
+wherever you are. The interface has been designed to make it as easy as possible to add/change/remove events and thereby reduce the frustration of using 
+the browser for entering and managing data.
+
+The layout of the events is also important, Monket Calendar is one of the only web based calendars can displays multi-day events spanning accross the 
+days on which they occur (Plans Calendar is the only other one I've seen). This spanning of events makes it much easier to read the calendar at a 
+glance.
+
+I made extensive use of exisitng libraries to speed up my development work, including:
+
+    * PHPiCalendar [2] for parsing .ics files
+    * DataRequestor [3] for Ajax calls
+    * ie7 [4] for Internet Explorer compataibility
+    * DOM-Drag [5] for javascript drag and drop support
+    * DOM Tooltop [6] for javascript tooltip support
+
+[2] http://sourceforge.net/projects/phpicalendar/
+[3] http://mikewest.org/projects.php?action=viewProject&projectID=1
+[4] http://dean.edwards.name/IE7/
+[5] http://www.youngpup.net/2001/domdrag
+[6] http://www.mojavelinux.com/cooker/demos/domTT/
+
+
+!!!Download
+The latest code can be found on the Monket Calendar homepage.
+
+[12] http://www.monket.net/wiki/monket-calendar
+
+!!!Usage
+
+!!Requirements
+* PHP 4+
+* Apache with RewriteRules enabled
+
+!!Installation
+* Copy both the monket-cal-source/ and monket-cal/ directories to your web server.
+* Edit monket-cal/monket-cal-config.php
+ * Change SITE_DIR to the absolute URL of the location of monket-cal/ e.g. '/~myuser/monket-cal/'
+ * Change CALENDAR_DIR to the filesystem location of your .ics calendars e.g. '/home/myuser/hosting/web/monket-cal/calendars/'
+ * Change MONKET_BASE to the absolute URL of monket-cal-source/ e.g. '/~myuser/monket-cal-source/'
+ * Change DEFAULT_CALENDAR to the name of the calendar your wish to create events in by default e.g. 'Home'
+ * Add any calendars you want imported to the $MonketWebCals array. e.g. $MonketWebCals[] = 'http://ical.mac.com/ical/UK32Holidays.ics';
+* Load up the monket-cal/ URL in your browser and enjoy! e.g. 'http://www.mydomain.net/~myuser/monket-cal/'
+
+
+!!!Bugs/Missing Features
+Monket Calendar is still in Beta, which means there are known bugs and missing features.
+
+* Internet Explorer support is still poor. The prev/next month buttons do not work, and you must edit a multi-day event before you can resize it.
+* You cannot change the colour/calendar of an event after it has been created.
+* Resizing multi-day events causes a page refresh (should really be done with Ajax).
+* The fade out at the bottom of each day is incorrectly positioned in Safari.
+* In Opera creating/editing an event does not automatically focus the text field.
+* Rounded corners only show up in Firefox.
+
+!!!The Author
+Monket Calendar was written by Karl O'Keeffe [9] (but couldn't have be written without the help of the authors of the libraries mentioned in the info 
+section).
+
+As of 25th June 2005 I am taking a year out to travel the world, so I will be unable to maintain Monket Calendar. If you are interested in taking over 
+the project from me, conttact me by email [10]. I'll try and check my email at least once a week while trekking through Asia.
+
+Upon my return I'll be looking for work in the Information Architecture/Interface Design side of IT. If you have anything that might interest me please 
+let me know [10]. My CV is available online [11]
+
+[9] http://www.monket.net/wiki/karl%20-o%27-keeffe
+[10] cal@monket.net
+[11] http://www.monket.net/wiki/cv
+
+!!! License
+Monket Calendar is released in two flavours.
+
+One under the GPL [7] as a fully working PHP application using the PHPiCalendar project to parse the .ics files.
+
+The second flavour is released under the Creative Commons 2.5 License [8] and does not include the GPL licensed PHPiCalendar. This flavour requires an 
+alternate .ics parser (not included I'm afraid).
+
+Monket Calendar can be used in commerical applications, but unless you ship your source code with the application you can only the Creative Commons 
+licensed part. This is because PHPiCalendar is licensed under the GPL, which requires that you ship your source code with your project.
+
+If your project is never released to the public (internal company project for example) than you are free to use the GPL code without having to make your 
+changes public.
+
+[7] http://www.gnu.org/copyleft/gpl.html
+[8] http://creativecommons.org/licenses/by/2.5/
