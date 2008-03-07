@@ -5,7 +5,7 @@
 	<title>Monket Calendar</title>
   <?php
     include_once('monket-cal-config.php');    
-    include_once('../monket-calendar/monket-cal-init.php');
+    include_once( MONKET_FILE_BASE . 'monket-cal-init.php');
 
     echo getCalInitHTML();
   ?>
@@ -24,7 +24,7 @@ html {
 <h1><?= $MC['title'] ?></h1>
 
 <?php
-  include_once('../monket-calendar/monket-cal-parse.php');
+  include_once( MONKET_FILE_BASE . 'monket-cal-parse.php');
   displayCalendar();
 ?>
 
