@@ -96,7 +96,8 @@ html, body {
 
 #calendar * {
 	font-size: 11px;
-	font-family: Tahoma;
+	font-family: Verdana;
+	line-height: 1.2em;
 }
 
 #calendar table {
@@ -199,11 +200,11 @@ html, body {
 }
 
 .color-2 {
-	border-color: #36D !important;
+	border-color: #446AB7 !important;
 }
 
 .color-2, .color-2 .text {
-	background-color: #58F !important;
+	background-color: #668CD9 !important;
 }
 
 .color-3 {
@@ -232,12 +233,12 @@ html, body {
 
 
 #calendar .week td .event {
-    border: 1px solid #777;
+    border: 0px solid #777;
     background-color: #999;
     margin-bottom: 1px;
     margin-left: 2px;
     margin-right: 2px;
-    padding: 0;
+    padding: 1px;
 }
 
 #calendar .week td .event.editable .text {
@@ -251,13 +252,13 @@ html, body {
 }
 
 #calendar .week td .event.hover-start {
-	border-left-width: 7px !important;
-	padding-left: 0 !important;
+	border-left-width: 6px !important;
+	padding-left: 0px !important;
 }
 
 #calendar .week td .event.hover-end {
-	border-right-width: 7px !important;
-	padding-right: 0 !important;
+	border-right-width: 6px !important;
+	padding-right: 0px !important;
 }
 
 #calendar .week td .event .description {
@@ -266,14 +267,14 @@ html, body {
 
 #calendar .week td .event.start {
 	padding-left: 6px;
-	-moz-border-radius-topleft: 10px;
-	-moz-border-radius-bottomleft: 10px;                                                                                  
+	- moz-border-radius-topleft: 10px;
+	- moz-border-radius-bottomleft: 10px;       
 }
 
 #calendar .week td .event.end {
 	padding-right: 6px;
-	-moz-border-radius-topright: 10px;                                                                                  
-	-moz-border-radius-bottomright: 10px;                                                                                  
+	- moz-border-radius-topright: 10px;                                                                                  
+	- moz-border-radius-bottomright: 10px;                                                                                  
 }
 
 #calendar .week td .event.all-day {
@@ -287,6 +288,8 @@ html, body {
     color: #FFF;
     background-color: #999;
     padding: 0;
+	padding-top: 1px;
+	padding-bottom: 2px;
     overflow: hidden;
     text-overflow: ellipsis;
 }
@@ -321,9 +324,11 @@ html, body {
 	border: none;
 	margin: 0;
 	padding: 0;
+	padding-top: 1px;
+	padding-bottom: 2px;
 
 	font-size: 11px;
-	font-family: tahoma, verdana, sans-serif;
+	font-family: Verdana, verdana, sans-serif;
 
 	background: #FFF;
 	color: #000;
