@@ -960,6 +960,12 @@ function getOldCalName(event) {
 	return ar[2];
 }
 
+function setOldCalName(event, calName) {
+	var cls = 'old-cal-' + getOldCalName(event);
+	removeClass(event, cls);
+	addClass(event, 'old-cal-' + calName);
+}
+
 function getCalName(event) {
 	var reg = /(^| )cal-([^ ]+)($| )/;
         var ar = reg.exec(event.className);
@@ -1035,6 +1041,8 @@ function editAjaxCallback(event, data, obj) {
 		if (lines[0] != AJAX_SUCCESS) {
 			log('event editing failed: "' + data + '"');
 			addClass(event, UPDATE_FAILED_CLASS);
+
+			// TODO: Have event revert back to unchanged on failure?
 		} else {
 			var form = getEventForm(event);
 			var input = getFormInput(form);
@@ -1046,6 +1054,8 @@ function editAjaxCallback(event, data, obj) {
 				log('Assuming have uid: ' + lines[1]);
 				event.setAttribute('id', 'event-' + lines[1]);
 			}
+			
+			setOldCalName(event, getCalName(event));
 		}
 		resetEventFromEdit(event);
 

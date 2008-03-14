@@ -10,6 +10,11 @@
 * Released under the Creative Commons License 2.5 (without phpicalendar)
 */
 
+// TODO: Convert all code to use iCalcreator
+// TODO: Use exceptions for error handling
+// TODO: Ensure all error cases are handled gracefully
+// TODO: Test suite
+
 require_once('icalcreator/iCalcreator.class.php');
 
 class Calendar extends vcalendar {
@@ -49,8 +54,7 @@ class Calendar extends vcalendar {
 	
 }
 
-function moveEvent($uid, $eventText, $eventStart, $eventEnd, $oldCalName, $calName) {
-	// we have an old calendar, so move event from that cal to $calName
+function moveEvent($uid, $eventText, $oldCalName, $calName) {
 
 	// read in old cal
 	// get event from old cal
@@ -70,6 +74,12 @@ function moveEvent($uid, $eventText, $eventStart, $eventEnd, $oldCalName, $calNa
 	$oldCalendar->save();
 	$newCalendar->save();
 }
+
+
+// Move event + update event
+// New event
+// Update event
+// Delete event
 
 
 function doUpdate() {
@@ -94,9 +104,34 @@ function doUpdate() {
 
 
 	if ($oldCalName != null) {
-		moveEvent($uid, $eventText, $eventStart, $eventEnd, $oldCalName, $calName);
-		return "success\nMoved event from '$oldCalName' to '$calName'";
+		// we have an old calendar, so move event from that cal to $calName
+		// possibly updating event summary as well
+		moveEvent($uid, $eventText, $oldCalName, $calName);
+		return "success";
+		
+	} else 	if ($uid == '') {
+		// No UID so create a new event
+		
+		$event = new vevent();
+		$event->setProperty('summary', $eventText);
+		$event->setProperty('dtstart', $eventStart, array( 'VALUE' => 'DATE' ));
+		$event->setProperty('dtend', $eventEnd, array( 'VALUE' => 'DATE' ));
+		
+		$cal = new Calendar($calName);
+		$cal->setComponent($event);
+		$cal->save();
+		
+		return "success";
+		
+	} else if ($eventText == '') {
+		// Event text is now empty, so delete event
+		
+	} else {
+		// Update the event
+		
 	}
+	
+	return;
 
 	$filename = CALENDAR_DIR . $calName . '.ics';
 
