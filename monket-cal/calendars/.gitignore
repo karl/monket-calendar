@@ -1,3 +1,5 @@
 *.ics
 *.ics.bak
+*.ics.backup
+*.ics.temp
 *.cached
