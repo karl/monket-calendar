@@ -877,79 +877,81 @@ function htmlUnEscape(s) {
 }
 
 function editComplete(form) {
-   try {
-      log('editComplete() - form: ' + form);      
-	document.onmousedown = null;      
+	try {
+		log('editComplete() - form: ' + form);      
+		document.onmousedown = null;      
+
+		var event = getFormEvent(form);
+		var eventText = getEventText(event);
+
+		addClass(form, HIDDEN_CLASS);
+		removeClass(eventText.parentNode, HIDDEN_CLASS);
+
+		var input = getFormInput(form);
 
 
-      var event = getFormEvent(form);
-      var eventText = getEventText(event);
-   
-      addClass(form, HIDDEN_CLASS);
-      removeClass(eventText.parentNode, HIDDEN_CLASS);
+		log('input: "' + input.value + '"');
+		log('text: "' + eventText.innerHTML + '"');
+		if (input.value == '' && eventText.innerHTML == NEW_EVENT_TEXT) {
+			resetEventFromEdit(event);
+			deleteEvent(event);
+			return;
+		}
 
-      var input = getFormInput(form);
+		var calName = getCalName(event);
+		var oldCalName = getOldCalName(event);
 
+		if (input.value != eventText.innerHTML || hasClass(event, UPDATE_FAILED_CLASS) || (oldCalName != calName)) {
+			log('sending changed value: ' + input.value);
 
-	log('input: "' + input.value + '"');
-	log('text: "' + eventText.innerHTML + '"');
-      if (input.value == '' && eventText.innerHTML == NEW_EVENT_TEXT) {
-        resetEventFromEdit(event);
-	deleteEvent(event);
-	return;
-      }
+			input.value = input.value.trim();
+			var text = htmlEscape(input.value);
+			text = (text == '') ? '&nbsp;' : text;
 
+			var parts = getEventParts(event);
+			for (var ct1 = 0; ct1 < parts.length; ct1++) {
+				var partText = getEventText(parts[ct1]);
+				partText.innerHTML = text;
+			}
 
-      if (input.value != eventText.innerHTML || hasClass(event, UPDATE_FAILED_CLASS)) {
-         log('sending changed value: ' + input.value);
+			showWorking(event);
 
-	input.value = input.value.trim();
-        var text = htmlEscape(input.value);
-        text = (text == '') ? '&nbsp;' : text;
+			var uid = getEventUid(event);
+			var calName = getCalName(event);
+			var oldCalName = getOldCalName(event);
 
-        var parts = getEventParts(event);
-        for (var ct1 = 0; ct1 < parts.length; ct1++) {
-                var partText = getEventText(parts[ct1]);
-                partText.innerHTML = text;
-        }
-   
-        showWorking(event);
+			// submit ajax
+			var req = new DataRequestor();
+			req.addArg(_GET, 'uid', uid);
+			req.addArg(_GET, 'eventText', input.value);	
+			req.addArg(_GET, 'calName', calName);
 
-	var uid = getEventUid(event);
-	var calName = getCalName(event);
-	var oldCalName = getOldCalName(event);
+			if (oldCalName != calName) {
+				req.addArg(_GET, 'oldCalName', oldCalName);
+			}
 
-         // submit ajax
-	var req = new DataRequestor();
-	req.addArg(_GET, 'uid', uid);
-	req.addArg(_GET, 'eventText', input.value);	
-	req.addArg(_GET, 'calName', calName);
+			if (uid == -1) {
+				$date = getEventDate(event);
+				req.addArg(_GET, 'eventStart', $date);
+				req.addArg(_GET, 'eventEnd', ($date - 0) + 1);
+			}
 
-	if (oldCalName != calName) {
-		req.addArg(_GET, 'oldCalName', event.oldCalName);
+			req.onload = function(data, obj) { editAjaxCallback(event, data, obj); };
+			req.onfail = function(status) { editAjaxCallback(event, status, null) };
+			req.getURL(baseURL + 'update/');
+
+		} else {
+			if (!hasClass(event, WORKING_CLASS)) {
+				resetEventFromEdit(event);
+			}
+		}
+
+		log('editComplete() - done');
+
+	} catch(e) {
+		logError(e);
+		throw(e);
 	}
-
-	if (uid == -1) {
-		$date = getEventDate(event);
-		req.addArg(_GET, 'eventStart', $date);
-		req.addArg(_GET, 'eventEnd', ($date - 0) + 1);
-	}
-
-	req.onload = function(data, obj) { editAjaxCallback(event, data, obj); };
-	req.onfail = function(status) { editAjaxCallback(event, status, null) };
-	req.getURL(baseURL + 'update/');
-
-      } else {
-        if (!hasClass(event, WORKING_CLASS)) {
-		resetEventFromEdit(event);
-	}
-      }
-
-      log('editComplete() - done');
-   } catch(e) {
-	logError(e);
-	throw(e);
-   }
 }
 
 function getOldCalName(event) {

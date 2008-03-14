@@ -1,0 +1,22 @@
+2.4.1 ###########################################  thanks / Ernie
+
+Function selectComponents
+
+For all recurrence instances for a calendar component, an x-property, 
+"x-current-dtstart" and opt. also "x-current-dtend" alt. "x-current-due", 
+has been created with a TEXT content, "Y-m-d [H:i:s][timezone/GMT offset]" 
+showing the current start and opt. also end alt. due date.
+
+2.4.2 ###########################################  thanks / Andrew
+
+Function parse (at component level)
+
+Ability to parse/inject strict rfc2445 property formatted property text 
+line(-s) into an component and also complete ALARM subcomponents.
+
+2.4.3 ###########################################  thanks / Tim
+
+Function parse (at calendar level)
+
+Allows multiple vcalendars (within a single ICS file) parse 
+into a single calendar (adaption for Oracle Calendar exports) 
