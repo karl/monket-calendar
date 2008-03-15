@@ -1026,6 +1026,8 @@ function resizeAjaxCallback(event, dragResize, data, obj) {
 			removeClass(event, WORKING_CLASS);
 			log('update event details!!');
 			window.location.reload(true);
+			
+			// TODO: Have layout done in JS and update without refresh
 		}
 		dragResize.parentNode.removeChild(dragResize);
 	} catch(e) {

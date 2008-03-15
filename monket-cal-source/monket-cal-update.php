@@ -98,7 +98,7 @@ function doUpdate() {
 		return "failed\nno start/end date";
 	}
 
-	if ($uid == '' && $eventText == '') {
+	if ($uid == '' && $eventText === '') {
 		return "success\nhaven't created event because text is empty";
 	}
 
@@ -117,17 +117,48 @@ function doUpdate() {
 		$event->setProperty('dtstart', $eventStart, array( 'VALUE' => 'DATE' ));
 		$event->setProperty('dtend', $eventEnd, array( 'VALUE' => 'DATE' ));
 		
+		$uid = $event->getProperty('uid');
+		
 		$cal = new Calendar($calName);
 		$cal->setComponent($event);
 		$cal->save();
 		
-		return "success";
+		return "success\n" . $uid;
 		
-	} else if ($eventText == '') {
+	} else if ($eventText === '') {
 		// Event text is now empty, so delete event
+
+		$cal = new Calendar($calName);
+		$cal->deleteComponent($uid);
+		$cal->save();
+		
+		return "success";
+
 		
 	} else {
 		// Update the event
+
+
+		$cal = new Calendar($calName);
+		$event = $cal->getComponent($uid);
+
+		if ($eventText != null) { 
+			$event->setProperty('summary', $eventText);
+		}
+		
+		if ($eventStart != null) { 
+			$event->setProperty('dtstart', $eventStart, array( 'VALUE' => 'DATE' ));
+		}
+		
+		if ($eventEnd != null) { 
+			$event->setProperty('dtend', $eventEnd, array( 'VALUE' => 'DATE' ));
+		}
+		
+		$cal->setComponent($event, $uid);
+		
+		$cal->save();
+		
+		return "success";
 		
 	}
 	
