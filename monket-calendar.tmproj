@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>monket-cal-source/monket-cal-parse.php</string>
+	<string>tests/CalendarUpdateTest.php</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -31,6 +31,118 @@
 				<integer>0</integer>
 				<key>line</key>
 				<integer>7</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>monket-cal-source/css/calendar.css</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>18</integer>
+				<key>line</key>
+				<integer>327</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>299</integer>
+		</dict>
+		<key>monket-cal-source/icalcreator/iCalcreator.class.php</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>0</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>monket-cal-source/js/calendar.js</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>61</integer>
+				<key>line</key>
+				<integer>1029</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>913</integer>
+		</dict>
+		<key>monket-cal-source/js/logging.js</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>0</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>monket-cal-source/js/prototype.js</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>0</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>monket-cal-source/js/rico.js</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>0</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>372</integer>
+		</dict>
+		<key>monket-cal-source/js/util.js</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>0</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>79</integer>
+		</dict>
+		<key>monket-cal-source/js/wz_dragdrop.js</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>0</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -65,6 +177,48 @@
 			<key>firstVisibleLine</key>
 			<integer>346</integer>
 		</dict>
+		<key>monket-cal-source/monket-cal-update.php</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>12</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>4</integer>
+		</dict>
+		<key>monket-cal/calendars/.gitignore</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>10</integer>
+				<key>line</key>
+				<integer>3</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>monket-cal/calendars/Birthdays.ics.temp</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>0</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
 		<key>monket-cal/index.php</key>
 		<dict>
 			<key>caret</key>
@@ -98,9 +252,23 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>23</integer>
+				<integer>7</integer>
 				<key>line</key>
-				<integer>3</integer>
+				<integer>5</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>tests/CalendarUpdateTest.php</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>26</integer>
+				<key>line</key>
+				<integer>11</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -112,10 +280,22 @@
 	<array>
 		<string>build.xml</string>
 		<string>monket-cal/update/index.php</string>
+		<string>monket-cal/calendars/.gitignore</string>
 		<string>monket-cal/monket-cal-config.php</string>
 		<string>monket-cal/index.php</string>
 		<string>monket-cal-source/monket-cal-init.php</string>
 		<string>monket-cal-source/monket-cal-parse.php</string>
+		<string>monket-cal-source/css/calendar.css</string>
+		<string>monket-cal-source/js/rico.js</string>
+		<string>monket-cal-source/js/util.js</string>
+		<string>monket-cal-source/js/wz_dragdrop.js</string>
+		<string>monket-cal-source/js/prototype.js</string>
+		<string>monket-cal-source/js/logging.js</string>
+		<string>monket-cal-source/js/calendar.js</string>
+		<string>monket-cal-source/monket-cal-update.php</string>
+		<string>tests/CalendarUpdateTest.php</string>
+		<string>monket-cal-source/icalcreator/iCalcreator.class.php</string>
+		<string>monket-cal/calendars/Birthdays.ics.temp</string>
 	</array>
 	<key>showFileHierarchyDrawer</key>
 	<false/>
